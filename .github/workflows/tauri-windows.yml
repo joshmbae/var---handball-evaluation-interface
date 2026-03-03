@@ -1,0 +1,26 @@
+name: Build Windows App
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+      - name: Install Rust (MSVC)
+        uses: dtolnay/rust-toolchain@stable
+      - name: Install deps
+        run: npm install
+      - name: Build frontend
+        run: npm run build
+      - name: Package via Tauri
+        uses: tauri-apps/tauri-action@v0
+        with:
+          releaseId: draft

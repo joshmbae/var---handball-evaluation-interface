@@ -1,0 +1,5 @@
+{
+  "name": "VAR - Handball Evaluation Interface",
+  "description": "A professional-grade dashboard for soccer referees to evaluate handball penalty situations based on biometric and physics-based metrics, featuring real-time data adjustments and visual analytics.",
+  "requestFramePermissions": []
+}
