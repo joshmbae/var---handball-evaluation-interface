@@ -23,4 +23,9 @@ jobs:
       - name: Package via Tauri
         uses: tauri-apps/tauri-action@v0
         with:
-          releaseId: draft
+          releaseDraft: false
+      - name: Upload Windows bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: handball-evaluation-windows
+          path: src-tauri/target/release/bundle/**
